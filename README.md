@@ -1,6 +1,6 @@
 # withFirebaseClaims
 
-<h3>a HOC that prevents component load if a user does not possess required Firebase custom claims</h3>
+<h3>a ReactJS HOC that prevents component load if a user does not possess required Firebase custom claims</h3>
 
 <p>This solution is based on a great Firebase auth setup with React by Robin Wieruch, go check it out here: https://github.com/the-road-to-react-with-firebase/react-firebase-authentication</p>
 <p>Tutorial: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/#react-firebase-protected-routes<p/>
