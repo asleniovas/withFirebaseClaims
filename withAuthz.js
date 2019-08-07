@@ -30,7 +30,6 @@ const withAuthz = (role) => Component => {
             
             }, (error) => {
                 
-                this.setState({actualRole: null})
                 alert(error)
             
             })
