@@ -57,23 +57,25 @@ const withAuthz = (role) => Component => {
                             this.props.history.push('/login');
                             reject("Unauthorised Access. Please login")
                         }
+                        else {
+                            //extract claims from IdToken
+                            authUser.getIdTokenResult()
+                                .then((result) => {
 
-                        //extract claims from IdToken
-                        authUser.getIdTokenResult()
-                            .then((result) => {
+                                    //check if user possesses the claim provided by the input component
+                                    if(result.claims[role]){
 
-                                //check if user possesses the claim provided by the input component
-                                if(result.claims[role]){
-
-                                    //if true resolve promise
-                                    var reslt = result.claims[role]  
-                                    resolve(reslt) 
+                                        //if true resolve promise
+                                        var reslt = result.claims[role]  
+                                        resolve(reslt) 
                                 
-                                // otherwise reject promise and prompt alert
-                                } else {
-                                    reject("Unauthorised Access")   
-                                }
-                            })
+                                    // otherwise reject promise and prompt alert
+                                    } else {
+                                        reject("Unauthorised Access")   
+                                    }
+                                })
+                        }
+
                     }
                 )
             })
